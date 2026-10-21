@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemilihan Ketua OSIS SMPN 2 Mrebet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="schoolName">SMPN 2 Mrebet</h1>
+    <p>Pemilihan Ketua OSIS 2026–2027</p>
+  </header>
+
+  <main>
+    <section id="home" class="panel">
+      <h2>Pemilihan Ketua OSIS</h2>
+      <p>Masukkan kode pemilih untuk melanjutkan.</p>
+      <input id="voterCode" maxlength="5"
+        placeholder="KODE 5 KARAKTER">
+      <button onclick="startVoting()">Masuk Memilih</button>
+      <p id="message" class="message"></p>
+    </section>
+
+    <section id="ballot" class="panel hidden">
+      <h2>Pilih satu pasangan calon</h2>
+      <div id="candidates" class="candidates"></div>
+      <button onclick="submitVote()">Kirim Suara</button>
+      <button class="secondary" onclick="cancelVoting()">Batal</button>
+      <p id="voteMessage" class="message"></p>
+    </section>
+
+    <section id="thanks" class="panel hidden">
+      <h2>Terima kasih!</h2>
+      <p>Suara kamu telah dicatat dalam demo ini.</p>
+      <button onclick="backHome()">Kembali ke Halaman Awal</button>
+    </section>
+
+    <button id="adminButton" class="admin-button"
+      onclick="showAdminLogin()" title="Admin">⌂</button>
+
+    <section id="adminLogin" class="panel hidden">
+      <h2>Admin</h2>
+      <input id="adminPassword" type="password"
+        placeholder="Kata sandi admin">
+      <button onclick="loginAdmin()">Masuk</button>
+      <button class="secondary" onclick="backHome()">Kembali</button>
+      <p id="adminMessage" class="message"></p>
+    </section>
+
+    <section id="dashboard" class="panel hidden">
+      <h2>Dashboard Admin</h2>
+      <button class="secondary" onclick="logoutAdmin()">Keluar Admin</button>
+
+      <h3>Create Kode Pemilih</h3>
+      <label for="classSelect">Pilih kelas</label>
+      <select id="classSelect">
+        <option>7A</option>
+        <option>7B</option>
+        <option>7C</option>
+        <option>8A</option>
+        <option>8B</option>
+        <option>8C</option>
+        <option>9A</option>
+        <option>9B</option>
+        <option>9C</option>
+      </select>
+
+      <label for="codeCount">Jumlah kode</label>
+      <input id="codeCount" type="number" min="1" max="100"
+        value="32">
+      <button onclick="generateCodes()">Generate Kode</button>
+      <button class="secondary" onclick="downloadCodes()">Unduh CSV</button>
+      <button class="secondary" onclick="window.print()">Cetak</button>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th><th>Kelas</th><th>Kode</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="codeTable"></tbody>
+        </table>
+      </div>
+
+      <h3>Statistik Pemilihan</h3>
+      <div id="schoolStats"></div>
+      <h4>Statistik per kelas</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kelas</th><th>Terdaftar</th>
+              <th>Memilih</th><th>Belum</th>
+            </tr>
+          </thead>
+          <tbody id="classStats"></tbody>
+        </table>
+      </div>
+
+      <h3>Hasil Suara Demo</h3>
+      <div id="results"></div>
+
+      <h3>Pengaturan Tampilan Demo</h3>
+      <label for="newSchoolName">Nama sekolah</label>
+      <input id="newSchoolName" placeholder="Nama sekolah">
+      <label for="newBackground">Warna latar belakang</label>
+      <input id="newBackground" type="color" value="#eef3ff">
+      <button onclick="saveAppearance()">Simpan Tampilan</button>
+
+      <h3>Kelola Paslon Demo</h3>
+      <label for="candidateName">Nama pasangan calon</label>
+      <input id="candidateName" placeholder="Contoh: Paslon 1">
+      <label for="candidateVision">Visi dan misi</label>
+      <textarea id="candidateVision" placeholder="Visi dan misi"></textarea>
+      <button onclick="addCandidate()">Tambah Paslon</button>
+      <div id="candidateAdmin"></div>
+
+      <p class="notice">
+        DEMO LOKAL: data hanya berada di browser ini.
+        Jangan gunakan untuk pemilihan resmi.
+      </p>
+    </section>
+  </main>
+
+  <footer>OSIS SMPN 2 Mrebet • 2026–2027</footer>
+  <script src="script.js"></script>
+</body>
+</html>
