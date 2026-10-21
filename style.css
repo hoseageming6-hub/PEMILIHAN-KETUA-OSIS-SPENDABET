@@ -1,0 +1,187 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #17233c;
+  background: #eef3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #eef3ff;
+}
+
+header {
+  background: #1746a2;
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+header p {
+  margin: 0;
+}
+
+main {
+  width: min(900px, 94%);
+  margin: 24px auto;
+}
+
+.panel {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px #1b34751a;
+}
+
+.hidden {
+  display: none !important;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #1746a2;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  margin: 4px 4px 4px 0;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.secondary {
+  background: #e5eaf5;
+  color: #17233c;
+}
+
+.admin-button {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 22px;
+  box-shadow: 0 2px 12px #0002;
+}
+
+.candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.candidate {
+  border: 2px solid #dce5f6;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.candidate.selected {
+  border-color: #1746a2;
+  background: #eef3ff;
+}
+
+.candidate h3 {
+  margin-top: 0;
+}
+
+.candidate label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.candidate input {
+  width: auto;
+  margin: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 12px 0 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 360px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: #edf2fc;
+}
+
+.message {
+  color: #b42318;
+}
+
+.notice {
+  padding: 12px;
+  background: #fff3cd;
+  border-radius: 8px;
+  color: #664d03;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #64748b;
+}
+
+@media (max-width: 520px) {
+  .panel {
+    padding: 16px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+}
+
+@media print {
+  header, footer, .admin-button, button, input, select,
+  textarea, .notice {
+    display: none !important;
+  }
+
+  body, .panel {
+    background: white;
+    box-shadow: none;
+  }
+}
